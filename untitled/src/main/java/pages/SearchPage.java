@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,6 +12,10 @@ public class SearchPage extends ParentPage {
 
     @FindBy(xpath = ".//li[@data-tcwlw-value='205']")
     private WebElement selectWidth;
+    String selectWidthlocator = ".//li[@data-tcwlw-value='%s']";
+
+    @FindBy(xpath = "//div[@class='tcwlw_select_field tcwlw_custom_select' and .//select[@name='width']]\n")
+    private WebElement selectWidth2;
 
     public  SearchPage(WebDriver webDriver){
         super(webDriver);
@@ -30,7 +35,12 @@ public class SearchPage extends ParentPage {
     }
 
     public void selectWidth(String width) {
-       // clickOnElement(selectWidth);
-        selectValueInDropDown(selectWidth, width);
+        clickOnElement(selectWidth2);
+        clickOnElement(selectWidth);
+
     }
+
+//public void clickOnButtonSearch() {
+    //    clickOnElement(selectWidth2);
+ //   }
 }

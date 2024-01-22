@@ -9,7 +9,8 @@ public class SearchTest extends BaseTest {
     @Test
     public void firstTest(){
         pageProvider.searchPage().openWidget();
-        pageProvider.searchPage().selectWidth("105");
+        pageProvider.searchPage().selectWidth("205");
+     //   pageProvider.searchPage().selectHeight("205");
         Assert.assertTrue("element dysplay",pageProvider.searchPage().isButtonDisabled());
 
     }

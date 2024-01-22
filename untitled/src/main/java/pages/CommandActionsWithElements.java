@@ -39,6 +39,7 @@ public class CommandActionsWithElements {
             webDriverWait15.until(ExpectedConditions.elementToBeClickable(element));
             String elementName = getElementName(element);
             element.click();
+
             logger.info("Element was clicked " + elementName);
         } catch (Exception e) {
             logger.error("Can not work with element");
@@ -57,7 +58,7 @@ public class CommandActionsWithElements {
     protected void selectValueInDropDown(WebElement dropDown, String value) {
         try {
             Select select = new Select(dropDown);
-            select.;
+            select.selectByVisibleText(value);
             logger.info(value + " was selected in DropDown" + getElementName(dropDown));
 
         } catch (Exception e) {

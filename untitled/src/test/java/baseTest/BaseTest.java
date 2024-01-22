@@ -27,13 +27,13 @@ public class BaseTest {
         pageProvider = new PageProvider(webDriver);
     }
 
-    @After
+ /*   @After
 
     public void tearDown() {
         webDriver.quit();
         logger.info("Browser was closed");
         //logger.info("----" + testName.getMethodName() + " was ended ----");
-    }
+    }*/
 
 
 
