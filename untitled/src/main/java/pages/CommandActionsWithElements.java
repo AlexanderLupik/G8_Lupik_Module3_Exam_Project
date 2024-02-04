@@ -28,11 +28,10 @@ public class CommandActionsWithElements {
         webDriverWait45 = new WebDriverWait(webDriver, Duration.ofSeconds(45));
     }
 
-    protected boolean isElementDisplayed(WebElement element) {
-        webDriverWait15.until(ExpectedConditions.visibilityOf(element));
-        boolean state = element.isDisplayed();
-        return state;
-    }
+
+
+
+
 
     protected void clickOnElement(WebElement element) {
         try {
@@ -66,5 +65,40 @@ public class CommandActionsWithElements {
             Assert.fail("Can not work with element");
         }
     }
+
+    protected void enterTextInToInput(WebElement input, String text) {
+        try {
+            //input.clear();
+            input.sendKeys(text);
+            logger.info(text + " was inputed in to input " + getElementName(input));
+        } catch (Exception e) {
+            logger.error("Can not work with element");
+            Assert.fail("Can not work with element");
+        }
+    }
+
+
+    protected void checkTextInElement(WebElement element, String expectedText) {
+        try {
+            String textFromElement = element.getText();
+            Assert.assertEquals("Text in element not matched", expectedText, textFromElement);
+            logger.info("Text matched");
+        } catch (Exception e) {
+            logger.error("Can not get text from element");
+            Assert.fail("Can not get text from element");
+        }
+    }
+
+    protected void checkTextInAltAtribute(WebElement element, String expectedText) {
+        try {
+            String textFromElement = element.getAttribute("alt");
+            Assert.assertEquals("Text in element not matched", expectedText, textFromElement);
+            logger.info("Text matched");
+        } catch (Exception e) {
+            logger.error("Can not get text from element");
+            Assert.fail("Can not get text from element");
+        }
+    }
+
 
 }

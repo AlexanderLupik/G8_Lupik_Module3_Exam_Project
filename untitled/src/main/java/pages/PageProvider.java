@@ -12,4 +12,12 @@ public class PageProvider {
         return new SearchPage(webDriver);
     }
 
+    public ResultPage resultPage (){
+        return new ResultPage(webDriver);
+    }
+
+    public SummaryPage summaryPage (){
+        return new SummaryPage(webDriver);
+    }
+
 }
