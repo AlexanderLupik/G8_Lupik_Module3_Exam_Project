@@ -20,4 +20,16 @@ public class PageProvider {
         return new SummaryPage(webDriver);
     }
 
+    public SaveQuotePage saveQuotePage (){
+        return new SaveQuotePage(webDriver);
+    }
+
+    public EmailQuotePage emailQuotePage (){
+        return new EmailQuotePage(webDriver);
+    }
+
+    public ComparePage comparePage (){
+        return new ComparePage(webDriver);
+    }
+
 }

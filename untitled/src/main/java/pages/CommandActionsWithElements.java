@@ -57,7 +57,8 @@ public class CommandActionsWithElements {
     protected void selectValueInDropDown(WebElement dropDown, String value) {
         try {
             Select select = new Select(dropDown);
-            select.selectByVisibleText(value);
+            webDriverWait10.until(ExpectedConditions.elementToBeClickable(dropDown));
+            select.selectByValue(value);
             logger.info(value + " was selected in DropDown" + getElementName(dropDown));
 
         } catch (Exception e) {
@@ -80,6 +81,7 @@ public class CommandActionsWithElements {
 
     protected void checkTextInElement(WebElement element, String expectedText) {
         try {
+            webDriverWait10.until(ExpectedConditions.visibilityOf(element));
             String textFromElement = element.getText();
             Assert.assertEquals("Text in element not matched", expectedText, textFromElement);
             logger.info("Text matched");
@@ -91,6 +93,7 @@ public class CommandActionsWithElements {
 
     protected void checkTextInAltAtribute(WebElement element, String expectedText) {
         try {
+            webDriverWait10.until(ExpectedConditions.visibilityOf(element));
             String textFromElement = element.getAttribute("alt");
             Assert.assertEquals("Text in element not matched", expectedText, textFromElement);
             logger.info("Text matched");
@@ -99,6 +102,42 @@ public class CommandActionsWithElements {
             Assert.fail("Can not get text from element");
         }
     }
+
+    protected boolean isElementDisplayed(WebElement element) {
+        try {
+            boolean state = element.isDisplayed();
+            logger.info("Element is displayed -> " + state);
+            return state;
+        } catch (Exception e) {
+            logger.info("Element is displayed -> false");
+            return false;
+        }
+    }
+
+    protected void checkIsElementNotVisible(WebElement webElement) {
+        Assert.assertTrue("Element is visible", !isElementDisplayed(webElement));
+    }
+
+    protected void checkIsElementVisible(WebElement webElement) {
+        Assert.assertTrue("Element is not visible", isElementDisplayed(webElement));
+    }
+
+
+    protected void checkToCheckbox(WebElement checkbox) {
+        webDriverWait10.until(ExpectedConditions.elementToBeClickable(checkbox));
+        try {
+            if (!checkbox.isSelected()) {
+                checkbox.click();
+                logger.info("Checkbox was checked");
+            } else {
+                logger.info("Checkbox is already selected");
+            }
+        } catch (Exception e) {
+            logger.error("Can not work with checkbox");
+            Assert.fail("Can not work with checkbox");
+        }
+    }
+
 
 
 }

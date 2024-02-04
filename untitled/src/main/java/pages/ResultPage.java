@@ -42,6 +42,21 @@ public class ResultPage extends ParentPage{
     @FindBy(xpath = ".//img[@class='tcwlw_result_brand_logo']")
     private WebElement brandName;
 
+    @FindBy(xpath = ".//button[@class='tcwlw_brand_btn tcwlw_select_btn']")
+    private WebElement buttonSelectTire;
+
+    @FindBy(xpath = ".//UL//li[1]//span[@class='tcwlw_result_compare']//input[@type='checkbox']")
+    private WebElement checkboxCompare1;
+
+    @FindBy(xpath = ".//UL//li[2]//span[@class='tcwlw_result_compare']//input[@type='checkbox']")
+    private WebElement checkboxCompare2;
+
+    @FindBy(xpath = ".//UL//li[3]//span[@class='tcwlw_result_compare']//input[@type='checkbox']")
+    private WebElement checkboxCompare3;
+
+    @FindBy(xpath = ".//button[@class='tcwlw_brand_btn tcwlw_btn_small tcwlw_compare_btn']")
+    private WebElement buttonCompare;
+
 
     public void checkIsRedirectToResultPage() {
         webDriverWait10.until(ExpectedConditions.urlToBe(BASEURL + getRelativeUrl()));
@@ -75,4 +90,20 @@ public class ResultPage extends ParentPage{
 
         checkTextInAltAtribute(brandName, brandName1);
     }
+
+    public void clickOnButtonSelectTire() {
+        clickOnElement(buttonSelectTire);
+    }
+
+    public void setAddToCompareCheckboxes() {
+
+        checkToCheckbox(checkboxCompare1);
+        checkToCheckbox(checkboxCompare2);
+        checkToCheckbox(checkboxCompare3);
+    }
+
+    public void clickOnButtonCompare() {
+        clickOnElement(buttonCompare);
+    }
+
 }
