@@ -8,9 +8,9 @@ import testData.TestData;
 public class CompareTest extends BaseTest {
 
     @Test
-    public void firstTest(){
+    public void firstTest() {
         pageProvider.searchPage().openWidget();
-        pageProvider.searchPage().enterPartNumberInToInputSearch(TestData.PART_NUMBER);
+
 
         pageProvider.searchPage().selectSearchBy("rawSize");
         pageProvider.searchPage().enterRawSizeInToInputSearch(TestData.RAW_SIZE);
@@ -26,5 +26,5 @@ public class CompareTest extends BaseTest {
         //і так всі елементи сторінки
 
 
-
-}}
+    }
+}

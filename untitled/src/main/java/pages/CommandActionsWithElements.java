@@ -84,7 +84,7 @@ public class CommandActionsWithElements {
             webDriverWait10.until(ExpectedConditions.visibilityOf(element));
             String textFromElement = element.getText();
             Assert.assertEquals("Text in element not matched", expectedText, textFromElement);
-            logger.info("Text matched");
+            logger.info("Text matched: " + expectedText + " = " + textFromElement);
         } catch (Exception e) {
             logger.error("Can not get text from element");
             Assert.fail("Can not get text from element");
@@ -135,6 +135,31 @@ public class CommandActionsWithElements {
         } catch (Exception e) {
             logger.error("Can not work with checkbox");
             Assert.fail("Can not work with checkbox");
+        }
+    }
+
+    protected void  enterTextInToInputSymbolically( WebElement input, String text){
+
+        try {
+            for (int i = 0; i < text.length(); i++) {
+                char symbol = text.charAt(i);
+                input.sendKeys(String.valueOf(symbol));
+                Thread.sleep(500);
+            }
+            logger.info(text + " was inputed in to input " + getElementName(input));
+        } catch (Exception e) {
+            logger.error("Can not work with element");
+            Assert.fail("Can not work with element");
+        }
+
+    }
+
+    protected void sleep(int time) {
+        //зробив окремий метод тут, так як утіловський метод sleep в безкінечно виконує тест, якщо його використовувати на пейджі, наприклад тут ResultPage.checkNumberOfTiresFound
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 

@@ -8,7 +8,7 @@ import testData.TestData;
 public class SendMailTest extends BaseTest {
 
     @Test
-    public void sendMailTest(){
+    public void sendMailTest() {
         pageProvider.searchPage().openWidget();
         pageProvider.searchPage().checkIsRedirectToSearchPage();
         pageProvider.searchPage().enterPartNumberInToInputSearch(TestData.PART_NUMBER);
@@ -41,8 +41,6 @@ public class SendMailTest extends BaseTest {
         pageProvider.emailQuotePage().checkIsSuccessMessageTextCorrect(ExpectedResult.SUCCESS_MESSAGE);
 
         //а далі треба перевірити апі та базу
-
-
 
 
     }

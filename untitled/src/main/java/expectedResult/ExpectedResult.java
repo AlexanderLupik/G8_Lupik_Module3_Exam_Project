@@ -30,5 +30,6 @@ public static String Subtotal4WithOptionalService = "294.00"; //це сабто�
     public final static String PART_NUMBER1 = "91064";
     public final static String PART_NUMBER2 = "72017";
     public final static String PART_NUMBER3 = "38076";
+    public final static Integer PRICE1 = 79;
 
 }

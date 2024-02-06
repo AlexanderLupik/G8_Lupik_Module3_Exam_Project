@@ -8,7 +8,7 @@ import testData.TestData;
 public class OptionalServiceTest extends BaseTest {
 
     @Test
-    public void optionalServiceTest(){
+    public void optionalServiceTest() {
         //перевіряю як працює опціональний сервіс
         //він з'являється тільки після вибору 4 шин і подефолту відключенний
         pageProvider.searchPage().openWidget();
